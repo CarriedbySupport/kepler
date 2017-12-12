@@ -1,0 +1,127 @@
+/*Table Tennis
+ *Author: Julius Martinez
+ *Email: 2158590@slu.edu.ph
+ *
+ *
+ *
+ *
+ */
+import java.util.Scanner;
+
+public class tableTennis {
+	public static void main(String[] args) {
+		double n, k, j;
+		Scanner inp = new Scanner (System.in);
+		n = inp.nextDouble();
+		k = inp.nextDouble();
+		long[] a = new long[(int)n];
+		long countw = 0, ans = 0;
+		for(long i = 0; i < n; i++) {
+			a[(int)i] = inp.nextLong();
+		}
+		for(long i = 0; i < n - 1; i++) {
+			if(a[(int)i] > a[(int)(i + 1)]) {
+				a[(int)(i + 1)] = a[(int)i];
+				ans = a[(int)i];
+				countw++;
+			}
+			if(countw == k) {
+				break;
+			}
+			if(a[(int)i] < a[(int)(i + 1)]) {
+				ans = a[(int)(i + 1)];
+				countw = 0;
+				countw++;
+			}
+			if(countw == k) {
+				break;
+			}
+		}
+		System.out.println("Output: " + ans);
+	}
+
+
+}
+
+-------------------------------------
+
+/*Race Against Time
+ *Author: Julius Martinez
+ *Email: 2158590@slu.edu.ph
+ *
+ *
+ *
+ *
+ */
+
+import java.util.Scanner;
+
+public class raceAgainstTime {
+	public static void main(String[] args) {
+		int n1, n2, n3, n4, n5, ans = 0;
+		Scanner inp = new Scanner (System.in);
+		n1 = inp.nextInt();
+		n2 = inp.nextInt();
+		n3 = inp.nextInt();
+		n4 = inp.nextInt();
+		n5 = inp.nextInt();
+		if(n5 < n4) {
+			n5 = n5 ^ n4;
+			n4 = n5 ^ n4;
+			n5 = n5 ^ n4;
+		}
+		if(n1 < n5 && n1 >= n4) {
+			ans++;
+		}
+		if(n2 < n5 * 5 && n2 >= n4 * 5) {
+			ans++;
+		}
+		if(n3 < n5 * 5 && n3 >= n4 * 5) {
+			ans++;
+		}
+		if(ans == 3 || ans == 0) {
+			System.out.print("YES");
+		} else {
+			System.out.print("NO");
+		}
+		System.out.println();
+	}
+}
+
+---------------------------------------------------------
+
+/*Quasi-Palindrome
+ *Author: Julius Martinez
+ *Email: 2158590@slu.edu.ph
+ *
+ *
+ *
+ *
+ */
+
+import java.util.Scanner;
+
+public class quasiPalindrome {
+	public static void main(String[] args) {
+		Scanner inp = new Scanner (System.in);
+		int num1, num2, num3;
+		System.out.print("Input a number: ");
+		num1 = inp.nextInt();
+		while(num1 % 10 == 0) {
+			num1 = num1 / 10;
+		}
+		num3 = num1;
+		num2 = 0;
+		while(num1 != 0) {
+			num2 = num1 % 10 + num2 * 10;
+			num1 = num1 / 10;
+		}
+		if(num2 == num3) {
+			System.out.print("YES, the number you inputed is quasi-palindromic.");
+		} else {
+			System.out.print("NO, the number you inputed is not quasi-palindromic. ");
+		}
+	}
+
+
+}
