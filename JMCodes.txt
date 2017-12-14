@@ -1,0 +1,64 @@
+
+
+public class JMCodes {
+
+    public JMCodes() {
+    }
+    public void fraction() {
+		Scanner kbd = new Scanner(System.in);
+		int n = kbd.nextInt();
+		if(n % 2 != 0) {
+			System.out.print((n / 2) + " " + (n / 2 + 1));
+		} else if((n / 2) % 2 != 0) {
+			System.out.print((n / 2 - 2) + " " + (n / 2 + 2));
+		} else {
+			System.out.print((n / 2 - 1) + " " + (n / 2 + 1));
+		}
+	}
+	public void apartment() {
+		Scanner kbd = new Scanner(System.in);
+		int t;
+		int n = kbd.nextInt();
+		int k = kbd.nextInt();
+		if(k == n || k == 0) {
+			System.out.print("0 ");
+		} else {
+			System.out.print("1 ");
+		}
+		t = n - k;
+		if(t > k * 2) {
+			t = k * 2;
+		}
+		System.out.println(t);
+	}
+	public void raceTime() {
+		Scanner kbd = new Scanner(System.in);
+		int ans = 0;
+		int a = kbd.nextInt();
+		int b = kbd.nextInt();
+		int c = kbd.nextInt();
+		int d = kbd.nextInt();
+		int e = kbd.nextInt();
+		if(e < d) {
+			e = e ^ d;
+			d = e ^ d;
+			e = e ^ d;
+		}
+		if(a < e && a >= d) {
+			ans++;
+		}
+		if(b < e * 5 && b >= d * 5) {
+			ans++;
+		}
+		if(c < e * 5 && c >= d * 5) {
+			ans++;
+		}
+		if(ans == 3 || ans == 0) {
+			System.out.print("YES");
+		} else {
+			System.out.print("NO");
+		}
+		System.out.println();
+	}
+
+}
