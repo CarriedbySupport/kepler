@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class searchForPrettyIntegers {
+	public static void main(String[] args) {
+		int[] a1 = new int[10];
+		int[] a2 = new int[10];
+		int n, m, tmp;
+
+		n = kbd.nextInt();
+		m = kbd.nextInt();
+
+		while(n-- != 0) {
+			tmp = kbd.nextInt();
+			a1[tmp] = a1[tmp] + 1;
+		}
+
+		while(m-- != 0) {
+			tmp = kbd.nextInt();
+			a2[tmp] = a2[tmp] + 1;
+		}
+
+
+		for(int i = 0; i < 10; i++) {
+			if(a1[i] != 0 && a2[i] != 0) {
+				System.out.println(i);
+				return;
+			}
+		}
+
+		int ans1 = 0, ans2 = 0;
+		for(int i = 0; i < 10; i++) {
+			if(a1[i] != 0) {
+				ans1 = i;
+				break;
+			}
+		}
+		for(int i = 0; i < 10; i++) {
+			if(a2[i] != 0) {
+				ans2 = i;
+				break;
+			}
+		}
+		if(ans1 < ans2) {
+			System.out.println("" + ans1 + ans2);
+		} else {
+			System.out.println("" + ans2 + ans1);
+		}
+	}
+
+	public final static Scanner kbd = new Scanner(System.in);
+}
