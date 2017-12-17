@@ -1,26 +1,22 @@
 import java.util.Scanner;
 
-public class Main {
-	public static void main(String args[]) {
+public class patCode3{
+
+	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		int count = 0;
-		int oneCount = 0;
-		int zeroCount = 0;
-		
-		for (int i = 0; i < n; i++) {
-			String c = sc.next();
-			if (c.equals("0")) {
-				zeroCount++;
-			} else {
-				oneCount++;
+		String s = sc.nextLine();
+		int countA =  0 ;
+		int dp1 = 0;
+		int dp2 = 0; 
+		for(int i =  0 ; i< s.length(); i++){
+			if(s.charAt(i)== 'a'){
+				countA ++;
+				dp1 = Math.max(dp1, dp2) +1;
+			}else{
+				dp2 = Math.max(dp2, countA)+1;
 			}
-			if (zeroCount > oneCount) {
-				count += zeroCount;
-				zeroCount = oneCount = 0;
-			}
+			
 		}
-		count += oneCount;
-		System.out.println(count);
+		System.out.println(Math.max(dp1, dp2));
 	}
 }

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class MathShow {
+public class patCode1 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
