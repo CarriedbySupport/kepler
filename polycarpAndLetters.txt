@@ -1,0 +1,25 @@
+import java.util.*;
+
+public static int polycarpAndLetters(){
+		Scanner reader=new Scanner(System.in);
+		int a=reader.nextInt();
+		String s=reader.next();
+		int ans=0;
+		int num[]=new int[27];
+		for(int n=0;n<a;n++){
+			if(s.charAt(n)<97){
+				num=new int[27];
+			}
+			else{
+				if(num[s.charAt(n)-96]==0){
+					num[s.charAt(n)-96]=1;
+					num[0]++;
+					if(num[0]>ans){
+						ans=num[0];
+					}
+				}
+			}
+		}
+		return ans;
+		
+	}
